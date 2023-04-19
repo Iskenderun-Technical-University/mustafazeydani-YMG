@@ -1,0 +1,30 @@
+.main {
+    height: 100vh;
+    background-image: url(../../../assets/fundraising_background.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5em 0 0 5em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    color: var(--color-variant);
+}
+
+.main h1 {
+    font-size: 6em;
+}
+
+.main h2 {
+    font-size: 2em;
+    max-width: 800px;
+}
+
+.main .buttons {
+    display: flex;
+    gap: 1em;
+}
+
+.main .donation-history {
+    font-weight: 600;
+    text-decoration: underline;
+}
