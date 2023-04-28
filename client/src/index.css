@@ -8,14 +8,15 @@
   text-decoration: none;
 }
 :root {
-  --color-primary: #357e51;
-  --color-variant: #fff;
+  --color-primary: #375655;
+  --color-variant: #74aaaa;
+  --color-variant1: #fff;
   --color-darkgrey: rgb(103, 103, 103);
 
   --transition: all 400ms ease;
 }
 a {
-  color: var(--color-variant);
+  color: var(--color-variant1);
   transition: var(--transition);
   -webkit-tap-highlight-color: transparent;
 }
@@ -24,20 +25,21 @@ a:hover {
 }
 .btn {
   width: max-content;
+  color: var(--color-primary);
   display: inline-block;
   padding: 0.5em 1.7em;
   border-radius: 0.5em;
   cursor: pointer;
   border: 2px solid transparent;
   transition: var(--transition);
-  background: var(--color-variant);
+  background: var(--color-variant1);
 }
 .btn-main {
   background-color: var(--color-primary);
-  color: var(--color-variant);
+  color: var(--color-variant1);
 }
 .btn:hover {
-  color: var(--color-variant);
+  color: var(--color-variant1);
   background: var(--color-primary);
 }
 .btn-main:hover {

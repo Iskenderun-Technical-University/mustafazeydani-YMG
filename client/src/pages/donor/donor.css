@@ -1,0 +1,63 @@
+.donor {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-variant);
+}
+
+.donor form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90%;
+    padding: 3em;
+    max-width: 550px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-variant1);
+    gap: 1em;
+}
+
+.donor h2 {
+    text-align: center;
+    color: var(--color-variant);
+}
+
+.donor p {
+    font-size: 1.2em;
+    font-weight: 600;
+    width: 100%;
+}
+
+.donor input:not([type="tel"], [type="number"]),
+.donor .btn {
+    width: 100%;
+}
+
+input[type="number"] {
+    width: 70px;
+}
+
+.donor input {
+    border: 2px solid transparent;
+    padding: 0.5em 0.3em;
+    border-bottom: 2px solid rgb(209, 209, 209) ;
+}
+
+.donor input:focus {
+    outline: none;
+    border: 2px solid var(--color-variant);
+    box-shadow: 0 0 10px #719ECE;
+}
+
+#phone {
+    align-self: flex-start;
+}
+
+.donor .error {
+    font-size: 16px;
+    color: red;
+    text-align: center;
+}
