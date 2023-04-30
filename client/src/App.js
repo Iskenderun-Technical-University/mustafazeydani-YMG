@@ -8,7 +8,8 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Login from "./pages/login/Login";
 import Main from "./pages/main/Main";
 import Dashboard from "./pages/dashboard/Dashboard";
-import Donor from "./pages/donor/Donor";
+import Donor from "./pages/forms/Donor";
+import RequestAid from "./pages/forms/RequestAid";
 
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/admin/dashboard" element={<Dashboard/>} />
             <Route path="/" element={<Main/>} />
             <Route path="/donate" element={<Donor/>}/>
+            <Route path="/request-aid" element={<RequestAid/>}/>
           </Routes>
         </Router>
       </div>

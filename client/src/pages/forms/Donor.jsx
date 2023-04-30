@@ -1,9 +1,9 @@
 import React from 'react'
-import "./donor.css"
+import "./forms.css"
 
 function Donor() {
     return (
-    <div className='donor'>
+    <div className='donor form'>
         <form>
             <h2>Donation</h2>
             <p>Enter your full name</p>
@@ -33,6 +33,7 @@ function Donor() {
                 name="amount" 
                 type="number" 
             />
+            <p className='error'>Error</p>
             <button className='btn btn-main'>Donate</button>
         </form>
     </div>
