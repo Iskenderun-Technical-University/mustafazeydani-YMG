@@ -1,5 +1,8 @@
+[![EN](https://img.shields.io/badge/lang-EN-red.svg)](https://github.com/Iskenderun-Technical-University/mustafazeydani-YMG/blob/main/README-EN.md)
 # GiveHope
-A donation management web application
+GiveHope, bağışları yönetmek için React.js, Node.js ve Express.js ile oluşturulmuş web tabanlı bir uygulamadır.
+
+GiveHope, bağışçılar, yararlanıcılar ve yöneticiler arasındaki bağışları yönetmek için bir platform görevi gören bir bağış yönetim sistemidir. Sistem, bağışçıların bağış yapmalarını ve bağış geçmişlerini takip etmelerini sağlayan kullanımı kolay bir arayüz sunar. Yararlanıcılar sistemi profillerini oluşturmak ve yönetmek, ayrıca bağış talep etmek ve almak için kullanabilirler. Yöneticiler bağış taleplerini yönetebilir, yararlanıcıları onaylayabilir ve reddedebilir ve bağışların verimli bir şekilde dağıtılmasını sağlayabilir. Bağış yönetim sisteminin amacı, bağışları yönetmek için güvenli ve şeffaf bir platform sağlarken, ihtiyaç sahiplerine bağış yapma sürecini basitleştirmektir. Sistem bağışçılar, yararlanıcılar ve yöneticiler arasındaki iletişim ve koordinasyonu kolaylaştırarak bağış sürecinin verimliliğini ve etkinliğini artırmayı ve nihayetinde insanların yaşamları üzerinde olumlu bir etki yaratmaya yardımcı olmayı amaçlamaktadır.
 
 ## Use Case
 ![usecase](./assets/usecase-diagram.png)
