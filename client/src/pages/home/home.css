@@ -1,41 +1,4 @@
-.dashboard {
-    display: flex;
-    height: 100vh;
-}
 
-.dashboard .left-panel {
-    flex-basis: 350px;
-    border-right: 2px solid grey;
-    text-align: center;
-    color: #fff;
-    background-color: var(--color-variant);
-    padding: 1em 0;
-}
-
-.dashboard .left-panel h2 {
-    margin-bottom: 2em;
-}
-
-.dashboard .main-panel {
-    position: relative;
-    flex-basis: 100%;
-}
-
-.dashboard .menu-items {
-    display: flex;
-    flex-direction: column;
-    gap: 3em;
-}
-
-.dashboard .menu-item {
-    padding: 1em;
-}
-
-.dashboard .menu-item:hover {
-    background-color: var(--color-darkgrey);
-    color: #fff;
-    cursor: pointer;
-}
 
 /******* Circle Styles *******/
 

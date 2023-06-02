@@ -1,0 +1,28 @@
+.panel {
+    flex-basis: 350px;
+    border-right: 2px solid grey;
+    text-align: center;
+    color: #fff;
+    background-color: var(--color-variant);
+    padding: 1em 0;
+}
+
+.panel h2 {
+    margin-bottom: 2em;
+}
+
+.panel .menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.panel .menu-item {
+    padding: 1em;
+}
+
+.panel .menu-item:hover {
+    background-color: var(--color-darkgrey);
+    color: #fff;
+    cursor: pointer;
+}

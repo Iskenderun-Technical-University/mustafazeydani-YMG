@@ -1,17 +1,33 @@
 import {
   BrowserRouter as Router, 
   Routes, 
-  Route} from "react-router-dom";
+  Route,
+  Outlet} from "react-router-dom";
+import Panel from "./pages/panel/Panel";
 import "./index.css" 
 import React from 'react';
 import NotFoundPage from "./pages/NotFoundPage";
-import Login from "./pages/login/Login";
+import Login from "./pages/forms/Login";
 import Main from "./pages/main/Main";
 import Home from "./pages/home/Home";
 import Donor from "./pages/forms/Donor";
 import RequestAid from "./pages/forms/RequestAid";
+import Dreq from "./pages/donationRequests/Dreq"
+import Areq from "./pages/aidRequests/Areq";
+import Dhis from "./pages/donationHistory/Dhis";
 
-
+const Layout = () => {
+  return (
+    <>
+      <div className="layout">
+        <Panel/>
+        <div className="outlet">
+          <Outlet />
+        </div>
+      </div>
+    </>
+  )
+}
 
 function App() {
   return (
@@ -20,9 +36,14 @@ function App() {
         <Router>
           <Routes>
             <Route path="*" element={<NotFoundPage/>} />
-            <Route path="/admin" element={<Login/>} />
-            <Route path="/admin/dashboard" element={<Home/>} />
             <Route path="/" element={<Main/>} />
+            <Route path="/admin" element={<Layout />}>
+              <Route path="/admin/dashboard" element={<Home/>} />
+              <Route path="/admin/donation-requests" element={<Dreq/>} />             
+              <Route path="/admin/aid-requests" element={<Areq/>} />             
+              <Route path="/admin/donation-history" element={<Dhis/>} />             
+            </Route>
+            {/* <Route path="/admin" element={<Login/>} /> */}
             <Route path="/donate" element={<Donor/>}/>
             <Route path="/request-aid" element={<RequestAid/>}/>
           </Routes>
