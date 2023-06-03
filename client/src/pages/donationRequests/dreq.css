@@ -1,0 +1,49 @@
+.dreq > h2 {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.dreq-container {
+    display: grid;
+    padding: 0 1em;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1em;
+}
+
+.dreq-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #fceed5;
+    border-radius: 1em;
+    padding: 1.5em;
+    aspect-ratio: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease-in-out;
+}
+
+.dreq-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.dreq-card .dreq-name {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.dreq-card .dreq-email,
+.dreq-card .dreq-number,
+.dreq-card .dreq-amount {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.dreq-card .dreq-amount {
+    margin-top: auto;
+}
+
+.dreq-amount > span {
+    font-weight: 600;
+}
