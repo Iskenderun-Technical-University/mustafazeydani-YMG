@@ -2,10 +2,12 @@ import {
   BrowserRouter as Router, 
   Routes, 
   Route,
-  Outlet} from "react-router-dom";
+  Outlet,
+  Navigate} from "react-router-dom";
 import Panel from "./pages/panel/Panel";
 import "./index.css" 
-import React from 'react';
+import React, {useContext} from 'react';
+import { AuthContext } from "./context/AuthContext";
 import NotFoundPage from "./pages/NotFoundPage";
 import Login from "./pages/forms/Login";
 import Main from "./pages/main/Main";
@@ -29,6 +31,22 @@ const Layout = () => {
   )
 }
 
+export const ProtectedRoute = ({ children }) => {
+  const { currentUser } = useContext(AuthContext)
+  if (!currentUser) {
+    if(window.location.pathname!=='/admin' && window.location.pathname!=='/' && window.location.pathname!=='/donate' && window.location.pathname!=='/request-aid') {
+      return <Navigate to={"/admin"}/>
+    }
+    return children   
+  }
+  else if(currentUser) {
+    if(window.location.pathname==='/admin' || window.location.pathname==='/admin/') {
+      return <Navigate to={"/admin/dashboard"}/>
+    }
+    return children
+  }
+}
+
 function App() {
   return (
     <div className="app">
@@ -37,8 +55,16 @@ function App() {
         <Routes>
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/" element={<Main />} />
-          <Route path="/admin" element={<Login />} />
-          <Route path="/admin" element={<Layout />}>
+          <Route path="/admin" element={
+            <ProtectedRoute>
+              <Login />
+            </ProtectedRoute>
+          }/>
+          <Route path="/admin" element={
+            <ProtectedRoute>
+              <Layout />
+            </ProtectedRoute>
+          }>
             <Route path="dashboard" element={<Home />} />
             <Route path="donation-requests" element={<Dreq />} />             
             <Route path="aid-requests" element={<Areq />} />             
