@@ -33,24 +33,26 @@ function App() {
   return (
     <div className="app">
       <div className="container">
-        <Router>
-          <Routes>
-            <Route path="*" element={<NotFoundPage/>} />
-            <Route path="/" element={<Main/>} />
-            <Route path="/admin" element={<Layout />}>
-              <Route path="/admin/dashboard" element={<Home/>} />
-              <Route path="/admin/donation-requests" element={<Dreq/>} />             
-              <Route path="/admin/aid-requests" element={<Areq/>} />             
-              <Route path="/admin/donation-history" element={<Dhis/>} />             
-            </Route>
-            {/* <Route path="/admin" element={<Login/>} /> */}
-            <Route path="/donate" element={<Donor/>}/>
-            <Route path="/request-aid" element={<RequestAid/>}/>
-          </Routes>
-        </Router>
+      <Router>
+        <Routes>
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/admin" element={<Login />} />
+          <Route path="/admin" element={<Layout />}>
+            <Route path="dashboard" element={<Home />} />
+            <Route path="donation-requests" element={<Dreq />} />             
+            <Route path="aid-requests" element={<Areq />} />             
+            <Route path="donation-history" element={<Dhis />} />             
+          </Route>
+          <Route path="/donate" element={<Donor />} />
+          <Route path="/request-aid" element={<RequestAid />} />
+        </Routes>
+      </Router>
       </div>
     </div>
   );
 }
 
 export default App;
+
+
