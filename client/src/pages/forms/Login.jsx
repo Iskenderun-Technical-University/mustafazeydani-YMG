@@ -33,7 +33,6 @@ function Login() {
       navigate("/admin/dashboard")
     }
     catch(err) {
-      console.log(err.response.data)
       setError(err.response.data)
     }
   }
