@@ -1,0 +1,49 @@
+.areq > h2 {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.areq-container {
+    display: grid;
+    padding: 0 1em;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1em;
+}
+
+.areq-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #fceed5;
+    border-radius: 1em;
+    padding: 1.5em;
+    aspect-ratio: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease-in-out;
+}
+
+.areq-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.areq-card .areq-name {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.areq-card .areq-email,
+.areq-card .areq-number,
+.areq-card .areq-amount {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.areq-card .areq-amount {
+    margin-top: auto;
+}
+
+.areq-amount > span {
+    font-weight: 600;
+}

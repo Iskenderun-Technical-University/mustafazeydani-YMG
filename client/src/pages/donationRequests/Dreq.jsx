@@ -6,18 +6,18 @@ function Dreq() {
 
   const [err, setError] = useState(null)
   const [fetching, setFetching] = useState(false)
-  const [aidRequests, setAidRequests] = useState([])
+  const [donations, setDonations] = useState([])
 
-  // Fetching aid requests
+  // Fetching donations
   useEffect(() => {
     setFetching(true)
     const fetchData = async () => {
       try {
-        const res = await axios.get("/aid")
-        setAidRequests(res.data)
+        const res = await axios.get("/donation")
+        setDonations(res.data)
       } 
       catch (err) {
-        setError("Error fetching aid requests")
+        setError("Error fetching donations")
       }
       setFetching(false)
     }
@@ -30,11 +30,12 @@ function Dreq() {
       <div className="dreq-container">
         {
           fetching ? ("Loading...") : err ? (err) : (
-            aidRequests.map((req, i) => (
+            donations.map((req, i) => (
               <div key={i} className="dreq-card">
                 <p className="dreq-name">{req.name}</p>
                 <p className="dreq-email">{req.email}</p>
                 <p className="dreq-number">{req.number}</p>
+                <p className="dreq-beneficiary">{req.beneficiary_name}</p>
                 <p className="dreq-amount">amount <span>{req.amount} TL</span></p>
               </div>
             ))

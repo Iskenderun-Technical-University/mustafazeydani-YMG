@@ -1,8 +1,7 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./forms.css"
 import axios from 'axios'
-
 
 function RequestAid() {
 
@@ -10,6 +9,7 @@ function RequestAid() {
     name:"",
     email:"",
     number:"",
+    title:"",
     description:"",
     amount: 0
   })
@@ -25,8 +25,8 @@ function RequestAid() {
   }
 
   const validateInput = () => {
-    const {name, email, number, description, amount} = inputs
-    if(!name || !email || !number || !description || !amount) {
+    const {name, email, number, title, description, amount} = inputs
+    if(!name || !email || !number || !title || !description || !amount) {
       setError("Please fill in all fields")
       return 
     }
@@ -38,12 +38,14 @@ function RequestAid() {
       setError("Please enter a valid phone number")
       return 
     }
+    return true
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
-    if(!validateInput()) 
+    if(!validateInput()) {
       return
+    } 
     try {
       await axios.post("/aid", inputs)
       setSubmitted(true)
@@ -82,6 +84,13 @@ function RequestAid() {
             onChange={handleChange}
             type="tel"
             placeholder='+905555555555'
+          />
+          <p>Title</p>
+          <input
+            name="title"
+            onChange={handleChange}
+            type="text"
+            placeholder='title'
           />
           <p>Describe your situation</p>
           <textarea
