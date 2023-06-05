@@ -6,7 +6,7 @@ function Popup({showPopup, handleClose}) {
   return (
     <div className="popup">
         <div className="popup-container">
-          <button onClick={handleClose} className="popup-close">X</button>
+          <button onClick={handleClose} className="popup-close">x</button>
           <h2>{showPopup.title}</h2>
           <p>{showPopup.description}</p>
         </div>

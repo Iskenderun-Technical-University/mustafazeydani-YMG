@@ -27,7 +27,7 @@ function Dreq() {
 
   return (
     <div className="dreq">
-      <h2>Donation Requests</h2>
+      <h2>Donations</h2>
       <div className="dreq-container">
         {
           fetching ? ("Loading...") : err ? (err) : (
@@ -36,7 +36,7 @@ function Dreq() {
                 <p className="dreq-name">{req.name}</p>
                 <p className="dreq-email">{req.email}</p>
                 <p className="dreq-number">{req.number}</p>
-                <p className="dreq-beneficiary">{req.beneficiary_name}</p>
+                <p className="dreq-beneficiary">Beneficiary : {req.beneficiary_name}</p>
                 <p className="dreq-amount">amount <span>{req.amount} TL</span></p>
               </div>
             ))
