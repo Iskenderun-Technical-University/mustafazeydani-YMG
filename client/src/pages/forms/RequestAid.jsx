@@ -11,7 +11,8 @@ function RequestAid() {
     number:"",
     title:"",
     description:"",
-    amount: 0
+    amount: 0,
+    status: "pending"
   })
 
   const [submitted, setSubmitted] = useState(false)

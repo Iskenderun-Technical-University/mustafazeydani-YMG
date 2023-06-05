@@ -12,7 +12,8 @@ export const addAid = (req, res) => {
         req.body.number,
         req.body.title,
         req.body.description,
-        req.body.amount
+        req.body.amount,
+        req.body.status
     ]
 
     db.query(q, [values], (err) => {

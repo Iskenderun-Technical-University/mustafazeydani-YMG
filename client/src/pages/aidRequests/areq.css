@@ -40,10 +40,25 @@
     font-weight: 500;
 }
 
-.areq-card .areq-amount {
+.areq-footer {
     margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .areq-amount > span {
     font-weight: 600;
+}
+
+.areq-icon {
+    all: unset;
+}
+
+.areq-icon:nth-child(3) {
+    font-size: 1.3rem;
+}
+
+.areq-icon:hover {
+    color: #f9a826;
 }
