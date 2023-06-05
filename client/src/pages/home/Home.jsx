@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./home.css"
 import axios from 'axios'
+import Loader from '../../components/loader/Loader'
 
 function Dashboard() {
   const [donations, setDonations] = useState([])
@@ -78,7 +79,7 @@ function Dashboard() {
     <div className="dashboard">
       <div className="main-panel">
         <h2>Welcome</h2>
-        {fetching ? <p>Loading...</p> :
+        {fetching ? <Loader/> :
         error ? <p className="error">{error}</p>:
         <div className="statistics">
           <div className="container">

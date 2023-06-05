@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import "./dreq.css"
 import axios from 'axios'
-
+import Loader from '../../components/loader/Loader'
 
 function Dreq() {
 
@@ -30,7 +30,7 @@ function Dreq() {
       <h2>Donations</h2>
       <div className="dreq-container">
         {
-          fetching ? ("Loading...") : err ? (err) : (
+          fetching ? <Loader /> : err ? (err) : (
             donations.map((req, i) => (
               <div key={i} className="dreq-card">
                 <p className="dreq-name">{req.name}</p>

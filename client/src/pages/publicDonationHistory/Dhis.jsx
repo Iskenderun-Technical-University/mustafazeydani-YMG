@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Loader from "../../components/loader/Loader"
 import "./dhis.css"
 import axios from "axios"
 
@@ -50,7 +51,6 @@ function DonationHistory() {
   
     function numberOfBeneficiaries() {
       // count the number of donations that have different beneficiary_uuid
-      console.log(donations.length)
       if(donations.length > 1) {
         let count=0
         for(let i=0;i<donations.length;i++){
@@ -69,14 +69,11 @@ function DonationHistory() {
       const encryptedNames = [];
       names.forEach(function(name) {
         let encryptedName = name.substring(0, 3)
-    
         for (let i = 3; i < name.length; i++) {
           encryptedName += '*'
         }
-    
         encryptedNames.push(encryptedName);
-      });
-    
+      })
       return encryptedNames.join(' ');
     }
     
@@ -84,6 +81,8 @@ function DonationHistory() {
     return (
       <div className="public-dhis">
         <h2>Donation History</h2>
+        {fetching ? <Loader /> :
+        error ? <p className="error">{error}</p>:
         <div className="public-dhis-container">
           <div className="statistics">
             <div className="container">
@@ -133,8 +132,7 @@ function DonationHistory() {
               </tbody>
             </table>
           </div>
-        </div>
-
+        </div>}
       </div>
   )
 }

@@ -4,6 +4,7 @@ import axios from 'axios'
 import {BsFillClipboardFill, BsCheck2All} from 'react-icons/bs'
 import {ImCross} from 'react-icons/im'
 import Popup from '../../components/modal/Popup'
+import Loader from '../../components/loader/Loader'
 
 function Areq() {
 
@@ -85,7 +86,7 @@ function Areq() {
       <h2>Aid Requests</h2>
       <div className="areq-container">
         {showPopup && <Popup showPopup={showPopup} handleClose={handleClose}/>}
-           {fetching ? ("Loading...") : err ? (err) : (
+           {fetching ? <Loader/> : err ? (err) : (
             aidRequests.map((req, i) => (
               <div className={`areq-card ${req.status}`} key={i}>
                 <p className="areq-name">{req.name}</p>

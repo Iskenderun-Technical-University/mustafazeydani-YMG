@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import Loader from '../../components/loader/Loader' 
 import "./dhis.css"
 import axios from 'axios'
 
@@ -27,7 +28,8 @@ function Dhis() {
   return (
     <div className="admin-dhis">
       <h2>Donation History</h2>
-      <table>
+      {fetching ? <Loader /> : error ? <p className="error">{error}</p>:
+        <table>
         <thead>
           <tr>
             <th>Donator's Name</th>
@@ -66,7 +68,7 @@ function Dhis() {
             );
           })}
         </tbody>
-      </table>
+      </table>}
     </div>
   )
 }
