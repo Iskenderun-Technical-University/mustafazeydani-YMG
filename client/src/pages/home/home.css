@@ -60,6 +60,7 @@
 }
 
 .dashboard .text{
+    text-align: center;
     font-size: 30px;
     font-weight: 500;
     color: #606060;

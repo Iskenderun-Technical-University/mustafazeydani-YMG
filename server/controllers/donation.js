@@ -29,14 +29,13 @@ export const getDonations = (req, res)=>{
 
         db.query(q, (err, data)=>{
             if(err) return res.send(err)
-            const modifiedData = data.map(({ uuid, ...other }) => other);
-            return res.status(200).json(modifiedData)
+            return res.status(200).json(data)
         })
     })
 }
 
 export const getBeneficiary = (req, res)=>{
-    const q = "SELECT * FROM aid_requests"
+    const q = "SELECT * FROM aid_requests WHERE status = 'accepted'"
 
     db.query(q, (err, data)=>{
         if(err) return res.send(err)

@@ -29,9 +29,21 @@ export const getAid = (req, res)=>{
         const q = "SELECT * FROM aid_requests"
 
         db.query(q, (err, data)=>{
-            if(err) return res.send(err)
-            const modifiedData = data.map(({ uuid, ...other }) => other);
-            return res.status(200).json(modifiedData)
+            if(err) return res.status(500).json(err)
+            return res.status(200).json(data)
+        })
+    })
+}
+
+export const updateAid = (req, res)=>{
+    const token = req.cookies.access_token
+    jwt.verify(token, "jwtkey", (err)=>{
+        if(err) return res.status(403).json("Token is not valid!")
+        const q = "UPDATE aid_requests SET status = ? WHERE uuid = ?"
+
+        db.query(q, [req.body.status, req.body.uuid], (err)=>{
+            if(err) return res.status(500).json(err)
+            return res.status(200).json("Status has been updated!")
         })
     })
 }

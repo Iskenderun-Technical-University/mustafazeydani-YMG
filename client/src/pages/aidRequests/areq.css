@@ -22,6 +22,18 @@
     transition: transform 0.3s ease-in-out;
 }
 
+.pending {
+    background: #fceed5;
+}
+
+.accepted {
+    background: #d5fced;
+}
+
+.rejected {
+    background: #fcd5d5;
+}
+
 .areq-card:hover {
     transform: scale(1.05);
     cursor: pointer;
@@ -34,10 +46,13 @@
 }
 
 .areq-card .areq-email,
-.areq-card .areq-number,
-.areq-card .areq-amount {
+.areq-card .areq-number {
     font-size: 1.2em;
     font-weight: 500;
+}
+
+.areq-card .areq-amount {
+    font-size: 1em;
 }
 
 .areq-footer {
