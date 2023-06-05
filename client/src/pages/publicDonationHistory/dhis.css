@@ -1,0 +1,120 @@
+.public-dhis {
+    min-height: 100vh;
+    background-image: url(../../../assets/fundraising_background.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.public-dhis > h2 {
+    text-align: center;
+    padding: 2em 0;
+    color: #fff;
+}
+
+.public-dhis > .public-dhis-container {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.public-dhis .statistics {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex: 50%;
+    justify-content: space-around;
+}
+
+.public-dhis .statistics > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    font-size: 1.2em;
+}
+
+.public-dhis .donations-table {
+    flex: 50%;
+}
+
+/*** Cicular Progress ***/
+.public-dhis .circular-progress{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.public-dhis .circular-progress::before{
+    content: "";
+    position: absolute;
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.public-dhis .progress-value{
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--color-darkgrey);
+}
+
+
+/*** Table Deisgn ***/
+
+.public-dhis thead {
+    color: var(--color-darkgrey);
+    font-size: 0.9em
+}
+
+.public-dhis table, 
+.public-dhis th, 
+.public-dhis td {
+    position: relative;
+    padding: 20px;
+}
+
+.public-dhis table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.public-dhis th, 
+.public-dhis td {
+    text-align: start;
+}
+
+.public-dhis th.status,
+.public-dhis th.priority {
+    text-align: center;
+}
+
+.public-dhis td.donation-name {
+    word-wrap: break-word;
+    max-width: 200px;
+}
+
+.public-dhis td:not(.donation-name) {
+    white-space: nowrap;
+}
+
+.public-dhis tbody tr {
+    transition: var(--transition);
+}
+
+.public-dhis tbody tr:hover {
+    background-color: rgb(215, 215, 215);
+    cursor: pointer;
+}

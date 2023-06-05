@@ -13,13 +13,6 @@
 
 /******* Circle Styles *******/
 
-.row {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .main-panel h2 {
     margin-top: 1em;
     font-size: 1.5em;

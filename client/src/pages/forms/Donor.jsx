@@ -13,14 +13,12 @@ function Donor() {
         amount: 0
     })
 
-    useEffect(() => {
-        console.log(inputs)
-    }, [inputs])
-
     const [submitted, setSubmitted] = useState(false)
 
     const [fetching, setFetching] = useState(false)
 
+    const [donations, setDonations] = useState([])
+    
     const [beneficiaries, setBeneficiaries] = useState([])
 
     const [err, setError] = useState(null)
@@ -31,21 +29,24 @@ function Donor() {
         setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
     }
 
-    // Fetching aid requests
     useEffect(() => {
-        setFetching(true)
-        const fetchData = async () => {
-          try {
-            const res = await axios.get("/donation/beneficiary")
-            setBeneficiaries(res.data)
-          } 
-          catch (err) {
-            setError("Error fetching beneficiaries")
-          }
+      setFetching(true)
+      const fetchData = async () => {
+        try {
+          const [donationRes, beneficiaryRes] = await Promise.all([
+            axios.get("/donation"),
+            axios.get("/donation/beneficiary")
+          ])
+          setDonations(donationRes.data)
+          setBeneficiaries(beneficiaryRes.data)
           setFetching(false)
+        } 
+        catch (err) {
+          setError("Error fetching requests")
         }
-        fetchData()
-      }, [])
+      }
+      fetchData()
+    }, [])
 
     const validateInput = () => {
         const {name, email, number, beneficiary_name, amount} = inputs
@@ -87,6 +88,16 @@ function Donor() {
         }
     }
 
+    function leftToDonate(beneficiary) {
+      const totalDonations = donations.reduce((acc, donation) => {
+        if (donation.beneficiary_uuid === beneficiary.uuid) {
+          return acc + donation.amount;
+        }
+        return acc;
+      }, 0);
+      return beneficiary.amount - totalDonations;
+    }
+
     return (
       <div className='donor form'>
         {submitted? (<p className="success">Thank you for your donation!</p>) : (
@@ -118,7 +129,7 @@ function Donor() {
             <option value="" key="default">Choose an option</option>
             {beneficiaries.map((beneficiary) => (
                 <option value={beneficiary.name} key={beneficiary.uuid}>
-                    {beneficiary.title + " - " + beneficiary.amount + " TL"}
+                    {beneficiary.title + " - " + leftToDonate(beneficiary) + " TL Remaining"}
                 </option>
             ))}
           </select>
@@ -128,7 +139,7 @@ function Donor() {
             onChange={handleChange}
             type="number"
             min={0}
-            max={inputs.beneficiary_name ? beneficiaries.find(b => b.name === inputs.beneficiary_name).amount : 0}
+            max={inputs.beneficiary_name ? leftToDonate(beneficiaries.find((beneficiary)=>beneficiary.name === inputs.beneficiary_name)) : 0}
           />
           {err && <p className="Error">{err}</p>}
           <button onClick={handleSubmit} className='btn btn-main'>Donate</button>

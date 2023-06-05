@@ -22,15 +22,11 @@ export const addDonation = (req, res) => {
 }
 
 export const getDonations = (req, res)=>{
-    const token = req.cookies.access_token
-    jwt.verify(token, "jwtkey", (err)=>{
-        if(err) return res.status(403).json("Token is not valid!")
-        const q = "SELECT * FROM donations"
+    const q = "SELECT * FROM donations"
 
-        db.query(q, (err, data)=>{
-            if(err) return res.send(err)
-            return res.status(200).json(data)
-        })
+    db.query(q, (err, data)=>{
+        if(err) return res.send(err)
+        return res.status(200).json(data)
     })
 }
 

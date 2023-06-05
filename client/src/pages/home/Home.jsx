@@ -60,6 +60,7 @@ function Dashboard() {
 
   function numberOfBeneficiaries() {
     // count the number of donations that have different beneficiary_uuid
+    console.log(donations.length)
     if(donations.length > 1) {
       let count=0
       for(let i=0;i<donations.length;i++){
@@ -98,7 +99,7 @@ function Dashboard() {
 
           <div className="container">
             <div className="beneficiaries-number">
-              <p>{numberOfBeneficiaries()}</p>
+              <p>{numberOfBeneficiaries() + 1}</p>
             </div>
             <span className="text">Number of beneficiaries</span>
           </div>

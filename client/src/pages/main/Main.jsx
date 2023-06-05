@@ -11,7 +11,7 @@ function Main() {
           <Link to="/donate" className='btn'>Donate</Link>
           <Link to="/request-aid" className='btn btn-main'>Request Aid</Link>
         </div>
-        <p>Check out the <Link className="donation-history" to="">donations history</Link></p>
+        <p>Check out the <Link to="/donation-history" className="donation-history">donations history</Link></p>
     </div>
   )
 }

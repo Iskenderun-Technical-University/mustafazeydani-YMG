@@ -23,15 +23,11 @@ export const addAid = (req, res) => {
 }
 
 export const getAid = (req, res)=>{
-    const token = req.cookies.access_token
-    jwt.verify(token, "jwtkey", (err)=>{
-        if(err) return res.status(403).json("Token is not valid!")
-        const q = "SELECT * FROM aid_requests"
+    const q = "SELECT * FROM aid_requests"
 
-        db.query(q, (err, data)=>{
-            if(err) return res.status(500).json(err)
-            return res.status(200).json(data)
-        })
+    db.query(q, (err, data)=>{
+        if(err) return res.status(500).json(err)
+        return res.status(200).json(data)
     })
 }
 

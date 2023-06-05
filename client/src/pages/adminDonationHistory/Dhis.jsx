@@ -25,7 +25,8 @@ function Dhis() {
   }, [])
 
   return (
-    <div className="dhis">
+    <div className="admin-dhis">
+      <h2>Donation History</h2>
       <table>
         <thead>
           <tr>

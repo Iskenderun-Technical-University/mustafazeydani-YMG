@@ -1,0 +1,58 @@
+.admin-dhis > h2 {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.admin-dhis a {
+    color: var(--color-darkgrey);
+}
+
+.admin-dhis a:hover {
+    color: var(--color-variant);
+}
+
+.admin-dhis thead {
+    color: var(--color-darkgrey);
+    font-size: 0.9em
+}
+
+.admin-dhis table, 
+.admin-dhis th, 
+.admin-dhis td {
+    position: relative;
+    padding: 20px;
+}
+
+.admin-dhis table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.admin-dhis th, 
+.admin-dhis td {
+    text-align: start;
+}
+
+.admin-dhis th.status,
+.admin-dhis th.priority {
+    text-align: center;
+}
+
+.admin-dhis td.donation-name {
+    word-wrap: break-word;
+    max-width: 200px;
+}
+
+.admin-dhis td:not(.donation-name) {
+    white-space: nowrap;
+}
+
+.admin-dhis tbody tr {
+    transition: var(--transition);
+}
+
+.admin-dhis tbody tr:hover {
+    background-color: rgb(215, 215, 215);
+    cursor: pointer;
+}

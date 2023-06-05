@@ -16,7 +16,9 @@ import Donor from "./pages/forms/Donor";
 import RequestAid from "./pages/forms/RequestAid";
 import Dreq from "./pages/donationRequests/Dreq"
 import Areq from "./pages/aidRequests/Areq";
-import Dhis from "./pages/donationHistory/Dhis";
+import AdminDhis from "./pages/adminDonationHistory/Dhis";
+import PublicDhis from "./pages/publicDonationHistory/Dhis";
+
 
 const Layout = () => {
   return (
@@ -68,10 +70,11 @@ function App() {
             <Route path="dashboard" element={<Home />} />
             <Route path="donation-requests" element={<Dreq />} />             
             <Route path="aid-requests" element={<Areq />} />             
-            <Route path="donation-history" element={<Dhis />} />             
+            <Route path="donation-history" element={<AdminDhis />} />             
           </Route>
           <Route path="/donate" element={<Donor />} />
           <Route path="/request-aid" element={<RequestAid />} />
+          <Route path="/donation-history" element={<PublicDhis />} />
         </Routes>
       </Router>
       </div>
