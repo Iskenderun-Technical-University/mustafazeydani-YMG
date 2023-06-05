@@ -13,11 +13,12 @@
 
 .popup-container {
     position: relative;
+    overflow-y: auto;
     background: #fff;
     border-radius: 10px;
     padding: 2em;
-    min-width: 400px;
-    min-height: 400px;
+    width: 400px;
+    height: 400px;
 }
 
 .popup-close {

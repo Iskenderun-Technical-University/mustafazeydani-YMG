@@ -46,22 +46,19 @@ function DonationHistory() {
     }
   
     function donatedAidPercentage() {
-      return (totalDonations()/totalAidRequestAmount()*100).toFixed(2)
+      if(totalAidRequestAmount() === 0) return 0
+      return (totalDonations()/totalAidRequestAmount()*100)
     }
   
     function numberOfBeneficiaries() {
       // count the number of donations that have different beneficiary_uuid
-      if(donations.length > 1) {
-        let count=0
-        for(let i=0;i<donations.length;i++){
-          for(let j=i+1;j<donations.length;j++){
-            if(donations[i].beneficiary_uuid !== donations[j].beneficiary_uuid)
-              count++
-          }
-        return count
-        }
+      let beneficiaries = []
+      donations.forEach(donation => {
+        if(!beneficiaries.includes(donation.beneficiary_uuid))
+          beneficiaries.push(donation.beneficiary_uuid)
       }
-      else return donations.length
+      )
+      return beneficiaries.length
     }
 
     function encryptName(namesString) {
@@ -88,14 +85,14 @@ function DonationHistory() {
             <div className="container">
               <span className="text">{totalDonations() + "TL / " + totalAidRequestAmount() + "TL"}</span>
               <div className="circular-progress" style={{ background: `conic-gradient(var(--color-darkgrey) ${donatedAidPercentage() * 3.6}deg, #ededed 0deg)` }}>
-                <span className="progress-value">{donatedAidPercentage() + "%"}</span>
+                <span className="progress-value">{donatedAidPercentage().toFixed(2) + "%"}</span>
               </div>
               <span className="text">Total Aid <br/>Donated / Requested</span>
             </div>
 
             <div className="container">
               <div className="beneficiaries-number">
-                <p>{numberOfBeneficiaries() + 1}</p>
+                <p>{numberOfBeneficiaries()}</p>
               </div>
               <span className="text">Number of beneficiaries</span>
             </div>

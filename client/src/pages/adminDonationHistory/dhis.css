@@ -1,3 +1,8 @@
+.admin-dhis {
+    height: 100vh;
+    overflow-y: auto;
+}
+
 .admin-dhis > h2 {
     text-align: center;
     margin: 1em 0;

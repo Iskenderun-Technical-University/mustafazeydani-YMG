@@ -100,7 +100,7 @@ function Donor() {
 
     return (
       <div className='donor form'>
-        {submitted? (<p className="success">Thank you for your donation!</p>) : (
+        {submitted? (<div className="submitted"><p className="submitted">Thank you for your donation!</p></div>) : (
           <form>
           <h2>Donation</h2>
           <p>Enter your full name</p>
